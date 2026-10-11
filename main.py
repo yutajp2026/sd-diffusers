@@ -1,12 +1,12 @@
-from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline, DPMSolverMultistepScheduler
 import torch
 from translate import Translator
 import os
 import gradio as gr
 import webbrowser
 import platform
-from PIL import Image
 import time
+import txt2img
+import img2img
 
 sd_file = os.path.join(os.getcwd(), 'v1-5-pruned-emaonly.safetensors')
 
@@ -35,38 +35,19 @@ with gr.Blocks() as demo:
     gr.Markdown("# Stable Diffusion 日本語プロンプト対応版")
     with gr.Tab("txt2img"):
         gr.Markdown("Txt2Imgタブでは、テキストから画像を生成できます。")
-        def txt2img(prompt, steps):
-            pipe1 = StableDiffusionPipeline.from_single_file(model_file).to(device)
-            pipe1.scheduler = DPMSolverMultistepScheduler.from_config(
-                pipe1.scheduler.config, timestep_spacing="trailing", use_karras_sigmas=True
-            )
-            img = pipe1(honyaku(prompt), num_inference_steps=steps).images[0]
-            gr.Info("生成が完了しました。")
-            return img
-
         prompt_input = gr.Textbox(label="プロンプト")
         steps_input = gr.Number(label="推論ステップ数", value=10, precision=0)
         txt2img_btn = gr.Button("生成")
         image_output = gr.Image()
-        txt2img_btn.click(fn=txt2img, inputs=[prompt_input, steps_input], outputs=image_output)
-        
+        txt2img_btn.click(fn=txt2img.txt2img, inputs=[device, model_file, prompt_input, steps_input], outputs=image_output)
     with gr.Tab("img2img"):
         gr.Markdown("Img2Imgタブでは、画像をプロンプトに基づいて編集できます。")
-        def img2img(image, prompt, steps):
-            pipe2 = StableDiffusionImg2ImgPipeline.from_single_file(model_file).to(device)
-            pipe2.scheduler = DPMSolverMultistepScheduler.from_config(
-                pipe2.scheduler.config, timestep_spacing="trailing", use_karras_sigmas=True
-            )
-            img0 = Image.open(image)
-            img = pipe2(honyaku(prompt), image=img0, num_inference_steps=steps).images[0]
-            gr.Info("生成が完了しました。")
-            return img
         image_input = gr.Image(label="入力画像", type="filepath")
         prompt_input = gr.Textbox(label="プロンプト")
         steps_input = gr.Number(label="推論ステップ数(実際のステップ数は入力値の8割になります)", value=10, precision=0)
         img2img_btn = gr.Button("生成")
         image_output = gr.Image()
-        img2img_btn.click(fn=img2img, inputs=[image_input, prompt_input, steps_input], outputs=image_output)
+        img2img_btn.click(fn=img2img.img2img, inputs=[device, model_file, image_input, prompt_input, steps_input], outputs=image_output)
     with gr.Tab("メニュー"):
         gr.Markdown("## サーバー")
         def quit():
@@ -77,7 +58,7 @@ with gr.Blocks() as demo:
         quit_btn.click(fn=quit, inputs=[], outputs=[])
         gr.Markdown("## モデル設定")
         gr.Markdown("下記モデルパスは、他のソフトでモデルを使うときのストレージの節約に役に立ちます。デフォルトは " + os.path.join(os.getcwd(), sd_file))
-        def change_model(model_path):
+        def change_model(model_path: str):
             global model_file
             model_file = model_path
             if model_path == sd_file:
