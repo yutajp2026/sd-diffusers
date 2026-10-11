@@ -2,7 +2,7 @@ from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 import gradio as gr
 from translate import Translator
 
-def txt2img(device: str, model_file: str, prompt: str, steps: int):
+def txt2img(device, model_file, prompt, steps):
     pipe1 = StableDiffusionPipeline.from_single_file(model_file).to(device)
     pipe1.scheduler = DPMSolverMultistepScheduler.from_config(
         pipe1.scheduler.config, timestep_spacing="trailing", use_karras_sigmas=True

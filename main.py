@@ -1,5 +1,4 @@
 import torch
-from translate import Translator
 import os
 import gradio as gr
 import webbrowser
@@ -28,8 +27,6 @@ if torch.cuda.is_available():
 else:
     print("GPUが利用できません。CPUを使用します。")
     device = 'cpu'
-
-honyaku = Translator('en','ja').translate
 
 with gr.Blocks() as demo:
     gr.Markdown("# Stable Diffusion 日本語プロンプト対応版")
