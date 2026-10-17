@@ -1,10 +1,5 @@
-/output.jpg
 /*.safetensors
 /venv
-/sd.bat
 /*.exe
-/v1-5-pruned-emaonly.safetensors
-/venv
-/sd.bat
 /model_settings.txt
 /test.py
