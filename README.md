@@ -10,7 +10,8 @@
 - diffusersを使用
 - デバイスを自動選択(CPU、Nvidia GPU)
 - Stable Diffusion 1.5を自動ダウンロード
-- モデル変更(モデルへのパスを入力するだけ)
+- DPMSolverMultistepScheduler使用
+- モデル変更(詳細は[モデルを探そう](https://github.com/yutajp2026/sd-diffusers#モデルを探そう))
 
 # インストール
 ## Windows
@@ -43,4 +44,12 @@ sudo zypper install python3 python3-pip python3-venv git
 5. `git pull`でアップデート
 
 # Stable Diffusionに興味を持った方へ
+### モデルを探そう(上級者向け)
+本ソフトでは、safetensorsやckptを好きな場所にダウンロードして、ファイルパスを入力するとモデルを変更できます。ただし、チェックポイントのみ対応しています。
+
+以下リンクにはたくさんのDiffusion(拡散)モデルが載っています。ダウンロードの際は、説明をよく読んでください。
+- https://civitai.com/models
+- https://huggingface.co/models?pipeline_tag=text-to-image&library=safetensors&sort=trending
+
+### おすすめソフト
 [recommend.md](https://github.com/yutajp2026/sd-diffusers-jp/blob/main/recommend.md)に記載したアプリには、様々な機能が備わっています。本ソフトでダウンロードしたモデルを使う方法なども載せてあります。
