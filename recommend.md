@@ -27,12 +27,11 @@ set COMMANDLINE_ARGS=
 
 rem 詰み防止のため
 set STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git
+set CLIP_PACKAGE=git+https://github.com/openai/CLIP.git
 
 call webui.bat
 ```
 6. `webui-user.bat`(起動ファイル)を実行
-7. 6の途中でClipをインストールできないエラーが発生するので`venv\Scripts\pip.exe install git+https://github.com/openai/CLIP.git`コマンドを実行
-8. もう一度`webui-user.bat`を実行
 ### Linuxへのインストール
 1. 下記コマンドで依存関係をインストール
 ```bash
@@ -67,10 +66,9 @@ python_cmd="python3.11"
 
 # 詰み防止のため
 export STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git
+export CLIP_PACKAGE=git+https://github.com/openai/CLIP.git
 ```
 4. `webui.sh`(起動ファイル)を実行
-5. 5の途中でClipをインストールできないエラーが発生するので`./venv/bin/pip install git+https://github.com/openai/CLIP.git`コマンドを実行
-6. もう一度`webui.sh`を実行
 ### モデル流用
 Models内のStable-Diffusionに移動またはコピー(ただし本ソフトと同じモデルが自動ダウンロードされます)
 ## [ComfyUI](https://comfy.org/download) 
