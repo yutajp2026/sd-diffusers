@@ -43,6 +43,9 @@ sudo zypper install python3 python3-pip python3-venv git
 4. `bash sdwebui.sh`で実行 ⚠️linuxの場合は自動でブラウザを開きません。
 5. `git pull`でアップデート
 
+# ライセンス
+本プロジェクトは、必要に応じて自由に改変・利用できます。ただし、悪用は厳禁です。
+
 # Stable Diffusionに興味を持った方へ
 ### モデルを探そう(上級者向け)
 本ソフトでは、safetensorsやckptを好きな場所にダウンロードして、ファイルパスを入力するとモデルを変更できます。ただし、チェックポイントのみ対応しています。
