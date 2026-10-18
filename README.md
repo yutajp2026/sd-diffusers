@@ -11,7 +11,7 @@
 - デバイスを自動選択(CPU、Nvidia GPU)
 - Stable Diffusion 1.5を自動ダウンロード
 - DPMSolverMultistepScheduler使用
-- モデル変更(詳細は[モデルを探そう](https://github.com/yutajp2026/sd-diffusers#モデルを探そう))
+- モデル変更(詳細は[モデルを探そう](https://github.com/yutajp2026/sd-diffusers#モデルを探そう上級者向け))
 
 # インストール
 ## Windows
