@@ -15,12 +15,13 @@ Models内のStable-diffusionに移動またはコピー
 2. [VC Redist](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170)がない場合はインストール
 3. コマンドプロンプトを開き`winget install --id Git.Git -e --source winget`コマンドでgitをインストール
 4. `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git`コマンドでリポジトリをクローン
-5. `webui-user.bat`の内容を下記に変更(remはなくてもよい)
+5. `webui-user.bat`の内容をメモ帳で下記に変更(remコマンドはないほうがよい)
 ```
 @echo off
-rem Pythonの初期パス(必要に応じて削除または変更)
+rem Pythonインストーラでの初期パス(必要に応じて削除または変更)
 rem 他のバージョンのPythonを使わないようにするために記載します。
-set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.exe
+rem 他のバージョンと競合する場合は環境変数の設定から下記のようなパスを削除してもよいです
+set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.exe"
 
 rem Nvidia GPUがない場合は"--use-cpu all --precision full --no-half --skip-torch-cuda-test"を代入
 set COMMANDLINE_ARGS=
