@@ -55,7 +55,8 @@ sudo apt install python3.11 python3.11-venv
 sudo pacman -S yay
 yay -S python311
 ```
-3. `webui-user.sh`の内容を下記に変更(#はコメント)
+3. `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git`コマンドでリポジトリをクローン
+4. `webui-user.sh`の内容を下記に変更(#はコメント)
 ```bash
 #!/bin/bash
 
@@ -69,7 +70,7 @@ python_cmd="python3.11"
 export STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git
 export CLIP_PACKAGE=git+https://github.com/openai/CLIP.git
 ```
-4. `webui.sh`(起動ファイル)を実行
+5. `webui.sh`(起動ファイル)を実行
 ### モデル流用
 Models内のStable-Diffusionに移動またはコピー(ただし本ソフトと同じモデルが自動ダウンロードされます)
 ## [ComfyUI](https://comfy.org/download) 
