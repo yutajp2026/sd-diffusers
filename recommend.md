@@ -20,11 +20,11 @@ Models内のStable-diffusionに移動またはコピー
 @echo off
 rem Pythonインストーラでの初期パス(必要に応じて削除または変更)
 rem 他のバージョンのPythonを使わないようにするために記載します。
-rem 他のバージョンと競合する場合は環境変数の設定から下記のようなパスを削除してもよいです
+rem 他のバージョンと競合する場合は環境変数の設定から下記のようなパスを削除してもよいです。
 set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.exe"
 
-rem Nvidia GPUがない場合は"--use-cpu all --precision full --no-half --skip-torch-cuda-test"を代入
-set COMMANDLINE_ARGS=
+rem Nvidia GPUがある場合はいらない
+set COMMANDLINE_ARGS="--use-cpu all --precision full --no-half --skip-torch-cuda-test"
 
 rem 詰み防止のため
 set STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git
@@ -56,15 +56,15 @@ sudo pacman -S yay
 yay -S python311
 ```
 3. `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git`コマンドでリポジトリをクローン
-4. `webui-user.sh`の内容を下記に変更(#はコメント)
+4. `webui-user.sh`の内容を下記に変更(1行目以外の#文はコメント)
 ```bash
 #!/bin/bash
 
 # Pythonを3.11に設定
 python_cmd="python3.11"
 
-# Nvidia GPUがない場合は"--use-cpu all --precision full --no-half --skip-torch-cuda-test"を代入してハッシュタグを削除
-#export COMMANDLINE_ARGS=""
+# Nvidia GPUがない場合はハッシュタグを削除してコマンドにする
+#export COMMANDLINE_ARGS="--use-cpu all --precision full --no-half --skip-torch-cuda-test"
 
 # 詰み防止のため
 export STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git
