@@ -48,9 +48,9 @@ sudo zypper install python3 python3-pip python3-venv git
 
 # Stable Diffusionに興味を持った方へ
 ### モデルを探そう(上級者向け)
-本ソフトでは、safetensorsやckptを好きな場所にダウンロードして、ファイルパスを入力するとモデルを変更できます。ただし、チェックポイントのみ対応しています。
+本ソフトでは、safetensorsやckptを好きな場所にダウンロードして、モデル設定でファイルパスを入力するとモデルを変更できます。ただし、**チェックポイントのみ**対応しています。
 
-以下リンクにはたくさんのDiffusion(拡散)モデルが載っています。ダウンロードの際は、説明をよく読んでください。
+以下リンクにはたくさんのDiffusion(拡散)モデルが載っています。
 - https://civitai.com/models
 - https://huggingface.co/models?pipeline_tag=text-to-image&library=safetensors&sort=trending
 
