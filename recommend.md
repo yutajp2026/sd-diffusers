@@ -78,6 +78,9 @@ Models内のStable-Diffusionに移動またはコピー(ただし本ソフトと
 ### モデル流用
 Models内のdiffusion_modelsに移動またはコピー
 ## [SD.Next](https://vladmandic.github.io/sdnext-docs/)
+Windowsにはランチャー版がありますが、それを使っても使わなくてもWebuiで戸惑うので初心者には向きません。
+### モデル流用
+Models内のStable-Diffusionに移動またはコピー
 ## [FastSDCPU](https://github.com/rupeshs/fastsdcpu)
 CPUだけで速く画像を生成でき、起動方法でGUIにもWebUIにもなります。アプリ自体の容量もダントツ少ないです。しかしPythonと[UV](https://docs.astral.sh/uv/)とStable Diffusionモデルの知識が必須なうえ、下記モジュールによってRAMが埋まるので上級者向けです。
 ### モデル流用
