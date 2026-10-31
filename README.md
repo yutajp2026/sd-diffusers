@@ -1,4 +1,4 @@
-# Stable Diffusion With Diffusers
+# Super SD Launcher
 画像生成AIであるStable Diffusionを簡単に使えるようにしたアプリ。
 
 # 特徴
